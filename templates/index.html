@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thirukkural Lookup</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1 class="app-title">Kural Explore</h1>
+    <div class="container">
+        <p class="subtitle">Enter a Kural number (1–1330) to see its meaning</p>
+
+        <form method="POST" class="kural-form reveal">
+            <input type="number" name="kural_number" placeholder="e.g. 1" min="1" max="1330" value="{{ number }}"
+                required>
+            <button type="submit">Get Meaning</button>
+        </form>
+
+        {% if error %}
+        <div class="error">{{ error }}</div>
+        {% endif %}
+
+        {% if kural %}
+        <div class="result reveal">
+            <h2>Kural #{{ kural.number }}</h2>
+
+            <div class="tamil-block">
+                <p class="tamil-line">{{ kural.kural[0] }}</p>
+                <p class="tamil-line">{{ kural.kural[1] }}</p>
+            </div>
+
+            <p class="chapter">{{ kural.chapter }} &middot; {{ kural.section }}</p>
+
+            <div class="meaning-block">
+                <h3>English Meaning</h3>
+                <p class="explanation">{{ kural.meaning.en }}</p>
+            </div>
+
+            <div class="meaning-block">
+                <h3>Tamil Meaning (Mu. Varadarajan)</h3>
+                <p class="explanation">{{ kural.meaning.ta_mu_va }}</p>
+            </div>
+
+            <div class="meaning-block">
+                <h3>Tamil Meaning (Solomon Pappaiah)</h3>
+                <p class="explanation">{{ kural.meaning.ta_salamon }}</p>
+            </div>
+
+            <div class="meaning-block">
+                <h3>Tamil Meaning (Kalaignar)</h3>
+                <p class="explanation">{{ kural.meaning.ta_kalaignar }}</p>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>

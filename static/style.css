@@ -1,0 +1,225 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: #000000;
+
+    margin: 0;
+    padding: 2rem 1rem;
+
+    background-image: linear-gradient(180deg, rgba(245, 230, 210, 0.85), rgba(234, 200, 170, 0.85)), url('https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1600&q=60');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+.container {
+    max-width: 760px;
+    margin: 0 auto;
+    background: rgba(255, 250, 240, 0.95);
+    border-radius: 14px;
+    padding: 1.25rem 1.25rem 2rem 1.25rem;
+    box-shadow: 0 10px 30px rgba(60, 30, 20, 0.12);
+    border: 1px solid rgba(200, 150, 120, 0.12);
+    position: relative;
+    z-index: 1;
+}
+
+h1 {
+    /* main title */
+    text-align: left;
+    color: #5a331f;
+    margin: 0 0 0.2rem 0;
+    font-weight: 800;
+    font-size: 1.95rem;
+    letter-spacing: 0.4px;
+}
+
+.app-title {
+    display: block;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-weight: 900;
+    font-size: 2.05rem;
+    margin-left: 0;
+    color: #0a0a0a;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 14px;
+    left: 14px;
+    transform: translateZ(0);
+    opacity: 0.12;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.subtitle {
+    text-align: left;
+    color: #8a5b3a;
+    margin-top: 0.15rem;
+    margin-bottom: 1.25rem;
+}
+
+.kural-form {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    background: linear-gradient(180deg, rgba(255, 245, 235, 0.9), rgba(250, 240, 230, 0.9));
+    padding: 0.7rem;
+    border-radius: 10px;
+    border: 1px solid rgba(180, 120, 90, 0.12);
+}
+
+
+.kural-form,
+.result {
+
+    background-image:
+        linear-gradient(rgba(180, 110, 80, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(180, 110, 80, 0.06) 1px, transparent 1px),
+        linear-gradient(#fff8f2, #fff8f2);
+    background-size: 36px 36px, 36px 36px, auto;
+    background-blend-mode: overlay;
+}
+
+.kural-form input {
+    flex: 1;
+    padding: 0.7rem;
+    font-size: 1rem;
+    border: 1px solid rgba(170, 110, 80, 0.18);
+    border-radius: 6px;
+    background: #fffdf8;
+}
+
+.kural-form button {
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    background: #b85a3a;
+
+    color: #fffefb;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(184, 90, 58, 0.12);
+}
+
+.kural-form button:hover {
+    background: #9a4528;
+}
+
+.error {
+    margin-top: 1rem;
+    padding: 0.8rem;
+    background: #fff7f6;
+    color: #8a2b1b;
+    border-radius: 6px;
+    border: 1px solid rgba(138, 43, 27, 0.06);
+}
+
+.result {
+    margin-top: 1.5rem;
+    padding: 1.2rem;
+    background: linear-gradient(180deg, #fffaf6, #fff7f2);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(60, 30, 20, 0.06);
+    border-left: 4px solid rgba(184, 90, 58, 0.9);
+}
+
+.tamil-block {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+}
+
+.tamil-line {
+    margin: 0.2rem 0;
+}
+
+.chapter {
+    text-align: center;
+    color: #926246;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.meaning-block {
+    margin-top: 1rem;
+}
+
+.meaning-block h3 {
+    margin-bottom: 0.3rem;
+    color: #6b3f2e;
+}
+
+.explanation {
+    color: #444;
+    line-height: 1.5;
+}
+
+
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 600ms cubic-bezier(.2, .8, .2, 1), transform 600ms cubic-bezier(.2, .8, .2, 1);
+    will-change: opacity, transform;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 640px) {
+
+    /* Make layout mobile-friendly and reachable with one hand */
+    .container {
+        padding: 1rem;
+        /* extra bottom space so fixed form doesn't cover content */
+        padding-bottom: 140px;
+    }
+
+    h1 {
+        font-size: 1.4rem;
+    }
+
+    /* Bottom-fixed one-handed input bar */
+    .kural-form {
+        position: fixed;
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        padding: 0.6rem;
+        border-radius: 12px;
+        border: 1px solid rgba(180, 120, 90, 0.14);
+        background: linear-gradient(180deg, rgba(255, 245, 235, 0.95), rgba(250, 240, 230, 0.95));
+        box-shadow: 0 12px 30px rgba(40, 20, 10, 0.12);
+        z-index: 40;
+        touch-action: manipulation;
+    }
+
+    .kural-form input {
+        flex: 1;
+        padding: 0.9rem 0.9rem;
+        font-size: 1.05rem;
+        border-radius: 10px;
+        height: 52px;
+    }
+
+    .kural-form button {
+        padding: 0.65rem 1.1rem;
+        font-size: 1.05rem;
+        border-radius: 10px;
+        height: 52px;
+        min-width: 110px;
+    }
+
+    /* Ensure reveal animations still work for elements above fixed bar */
+    .result {
+        margin-bottom: 0.6rem;
+    }
+}
