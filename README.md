@@ -13,6 +13,14 @@ A beautiful, mobile-first web application for exploring and understanding **Thir
 - **Mobile-optimized design** – One-handed usable on smartphones with bottom-fixed input bar
  screens
 - **Live API integration** – Fetches fresh data from the open-source Thirukkural API
+ - **Screen-shot**
+
+## 🖼️ Screenshot
+
+Add a local image named `screenshot.png` into the `static/` folder and it will be displayed below:
+
+![Kural Exploror Screenshot](static/screenshot.png)
+
 
 ## 🛠️ Tech Stack
 
