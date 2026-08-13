@@ -17,7 +17,6 @@ A beautiful, mobile-first web application for exploring and understanding **Thir
 
 ## 🖼️ Screenshot
 
-Add a local image named `screenshot.png` into the `static/` folder and it will be displayed below:
 
 ![Kural Exploror Screenshot](static/screenshot.png)
 
